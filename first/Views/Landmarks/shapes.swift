@@ -8,21 +8,29 @@
 import SwiftUI
 
 struct shapes: View {
+    var landmark: Landmark
+    
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                Text("Big Bamzz ")
+                Text(landmark.name)
                     .font(.title)
                 HStack {
-                    Text("Favoyrs Restairant ")
+                    Text(landmark.park)
                         .font(.body)
                     Spacer()
-                    Text("New York ")
+                    Text(landmark.state)
                         .font(.subheadline)
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
             }
+            VStack(alignment: .leading) {
+                Text("About \(landmark.name)")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text(landmark.description)
+            }
+            
 //                Rectangle()
 //            .trim(from: 0.4, to: 1.0)
 //            .rotation(.degrees(89))
@@ -32,5 +40,5 @@ struct shapes: View {
 }
 
 #Preview {
-    shapes()
+    shapes(landmark: ModelData().landmarks[1])
 }
